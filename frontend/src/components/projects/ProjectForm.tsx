@@ -12,9 +12,9 @@ interface ProjectFormProps {
 }
 
 const VISIBILITY_OPTIONS: { value: ProjectVisibility; label: string; desc: string }[] = [
-  { value: 'private', label: 'Sukromny', desc: 'Iba ty' },
-  { value: 'link', label: 'Zdielany odkazom', desc: 'Ktokovek s odkazom' },
-  { value: 'public', label: 'Verejny', desc: 'Vsetci prihlaseni' },
+  { value: 'private', label: 'Súkromný', desc: 'Iba ty' },
+  { value: 'link', label: 'Zdieľaný odkazom', desc: 'Ktokoľvek s odkazom' },
+  { value: 'public', label: 'Verejný', desc: 'Všetci prihlasení' },
 ]
 
 export function ProjectForm({ open, onClose, project }: ProjectFormProps) {
@@ -28,7 +28,7 @@ export function ProjectForm({ open, onClose, project }: ProjectFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!name.trim()) { setError('Nazov projektu je povinny'); return }
+    if (!name.trim()) { setError('Názov projektu je povinný'); return }
     try {
       setLoading(true)
       setError('')
@@ -42,7 +42,7 @@ export function ProjectForm({ open, onClose, project }: ProjectFormProps) {
       }
       onClose()
     } catch {
-      setError('Nepodarilo sa ulozit projekt')
+      setError('Nepodarilo sa uložiť projekt')
     } finally {
       setLoading(false)
     }
@@ -52,29 +52,29 @@ export function ProjectForm({ open, onClose, project }: ProjectFormProps) {
   const borderInactive = 'border-slate-200 hover:border-slate-300'
 
   return (
-    <Modal open={open} onClose={onClose} title={isEdit ? 'Upravit projekt' : 'Novy projekt'} size="sm">
+    <Modal open={open} onClose={onClose} title={isEdit ? 'Upraviť projekt' : 'Nový projekt'} size="sm">
       <form onSubmit={handleSubmit} className="space-y-4">
         <Input
-          label="Nazov projektu"
+          label="Názov projektu"
           value={name}
           onChange={e => { setName(e.target.value); setError('') }}
-          placeholder="Napr. System spravy objednavok"
+          placeholder="Napr. Systém správy objednávok"
           autoFocus
           error={!!error}
         />
         <div>
-          <label className="field-label">Popis (volitelne)</label>
+          <label className="field-label">Popis (voliteľné)</label>
           <textarea
             value={description}
             onChange={e => setDescription(e.target.value)}
-            placeholder="Kratky popis projektu..."
+            placeholder="Krátky popis projektu..."
             rows={2}
             className="field-input resize-none"
           />
         </div>
 
         <div>
-          <label className="field-label">Viditelnost</label>
+          <label className="field-label">Viditeľnosť</label>
           <div className="space-y-2 mt-1">
             {VISIBILITY_OPTIONS.map(opt => (
               <label
@@ -100,8 +100,8 @@ export function ProjectForm({ open, onClose, project }: ProjectFormProps) {
 
         {error && <p className="text-xs text-red-500">{error}</p>}
         <div className="flex justify-end gap-2 pt-1">
-          <Button variant="secondary" type="button" onClick={onClose} disabled={loading}>Zrusit</Button>
-          <Button variant="primary" type="submit" loading={loading}>{isEdit ? 'Ulozit' : 'Vytvorit'}</Button>
+          <Button variant="secondary" type="button" onClick={onClose} disabled={loading}>Zrušiť</Button>
+          <Button variant="primary" type="submit" loading={loading}>{isEdit ? 'Uložiť' : 'Vytvoriť'}</Button>
         </div>
       </form>
     </Modal>

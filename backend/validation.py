@@ -215,7 +215,7 @@ def validate_use_case(uc: UseCaseResponse) -> List[ValidationIssue]:
         if not alt.condition or not alt.condition.strip():
             issues.append(ValidationIssue(
                 field=f"alternativeFlows[{i}].condition",
-                message=f"Alternatívny tok '{alt.label}' musí mať definovanú podmienku",
+                message=f"Alternatívny tok '{alt.label}' musí mať definovanú podmienku/popis",
                 severity="error",
             ))
         if not alt.steps:

@@ -246,7 +246,7 @@ export function validateUseCase(
       if (!alt.condition?.trim()) {
         issues.push({
           field: `jacobsonAltFlows[${i}].condition`,
-          message: `Alternatívny tok „${alt.label}" musí mať podmienku`,
+          message: `Alternatívny tok '${alt.label}' musí mať definovanú podmienku/popis`,
           severity: 'error',
         })
       }
@@ -364,7 +364,7 @@ export function validateUseCase(
     if (!alt.condition?.trim()) {
       issues.push({
         field: `alternativeFlows[${i}].condition`,
-        message: `Alternatívny tok „${alt.label || i + 1}" musí mať podmienku`,
+        message: `Alternatívny tok '${alt.label || i + 1}' musí mať definovanú podmienku/popis`,
         severity: 'error',
       })
     }

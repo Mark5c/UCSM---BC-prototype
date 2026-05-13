@@ -81,12 +81,12 @@ export function RelationshipForm({ useCases, currentUcId, onAdd }: RelationshipF
       </div>
 
       <div>
-        <label className="field-label">Poznámka (voliteľné)</label>
+        <label className="field-label">Poznámka</label>
         <input
           value={note}
           onChange={e => setNote(e.target.value)}
           className="field-input"
-          placeholder="Voliteľná poznámka..."
+          placeholder="Poznámka..."
         />
       </div>
 

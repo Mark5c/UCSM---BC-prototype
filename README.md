@@ -11,8 +11,16 @@ A collaborative web application for creating, editing, and validating UML use ca
 ### Prerequisites
 - Python 3.11+
 - Node.js 18+
+- Git
 
-### 1. Backend
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Mark5c/UCSM---BC-prototype.git
+cd UCSM---BC-prototype
+```
+
+### 2. Backend
 
 ```bash
 cd backend
@@ -32,7 +40,7 @@ uvicorn main:app --reload --port 8000
 The API will be available at `http://localhost:8000`.  
 Interactive API docs: `http://localhost:8000/docs`
 
-### 2. Frontend
+### 3. Frontend
 
 ```bash
 cd frontend
@@ -42,9 +50,21 @@ npm run dev
 
 The app will be available at `http://localhost:5173`.
 
-### Windows shortcut
+### 4. First run
 
-`start.bat` in the project root starts both servers and opens the browser automatically (NOTE: paths are hardcoded to `C:\Users\marek\Desktop\BCprototype`).
+The database is created automatically on first startup — no migration needed. Open `http://localhost:5173` and register a new account to get started.
+
+---
+
+### Network access (optional)
+
+To make the app accessible to other devices on the same local network, start the backend with:
+
+```bash
+uvicorn main:app --reload --port 8000 --host 0.0.0.0
+```
+
+The `host: true` option is already set in `frontend/vite.config.ts`. Other devices can then access the app at `http://<your-ip>:5173`.
 
 ---
 
@@ -61,9 +81,10 @@ The app will be available at `http://localhost:5173`.
 - Predefined board templates (e.g. Authentication) that auto-populate columns and use cases
 
 ### Use Case Editor
-- Two supported templates: **Cockburn** (structured, with level/scope fields) and **Jacobson** (basic)
+- Two supported templates: **Cockburn** (structured, with level/scope fields) and **Jacobson** (basic flow + subflows)
 - Fields: primary actor, supporting actors, goal, preconditions, postconditions, main flow, alternative flows
 - Alternative flows linked to specific main-flow steps
+- Auto-save with 600ms debounce
 
 ### Relationships
 - `«include»` and `«extend»` relationships between use cases
@@ -114,7 +135,7 @@ frontend/src/
     WebSocketContext.tsx  # WS connection, incoming event handling
   components/
     layout/          # AppShell, TopBar, Sidebar, ConnectionBadge
-    projects/        # ProjectList, ProjectCard, CreateProjectModal
+    projects/        # ProjectList, ProjectCard, ProjectForm
     board/           # UseCaseBoard, BoardColumn, drag-and-drop logic
     useCases/        # UseCaseEditor, all field sub-editors
     flows/           # MainFlowEditor, AlternativeFlowEditor, StepRow

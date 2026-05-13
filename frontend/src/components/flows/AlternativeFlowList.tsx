@@ -201,7 +201,7 @@ export function AlternativeFlowList({ flows, mainFlow, onChange, issues = [], hi
                 {/* Trigger step selector */}
                 {mainFlow.length > 0 && (
                   <div>
-                    <label className="field-label">Spúšťací krok hlavného toku (voliteľné)</label>
+                    <label className="field-label">Spúšťací krok hlavného toku</label>
                     <select
                       value={flow.triggeredByStepId ?? ''}
                       onChange={e => handleStepLink(i, e.target.value)}
@@ -218,12 +218,12 @@ export function AlternativeFlowList({ flows, mainFlow, onChange, issues = [], hi
                 )}
 
                 <div>
-                  <label className="field-label">Podmienka</label>
+                  <label className="field-label">Podmienka/Popis</label>
                   <input
                     value={flow.condition}
                     onChange={e => updateFlow(i, { condition: e.target.value })}
                     className={`field-input ${issues.some(iss => iss.field === `alternativeFlows[${i}].condition` && iss.severity === 'error') ? 'field-input-error' : ''}`}
-                    placeholder="Ak..."
+                    placeholder="Kedy sa vykoná..."
                   />
                 </div>
 
