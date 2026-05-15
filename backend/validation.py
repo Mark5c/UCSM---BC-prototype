@@ -17,7 +17,9 @@ SLOVAK_VERBS = {
     "registruje", "aktivuje", "deaktivuje", "spustí", "zastaví", "otvorí",
     "zatvorí", "odovzdá", "schváli", "zamietne", "zaregistruje", "skopíruje",
     "presunie", "zlúči", "rozdelí", "pridá", "odoberie", "zmení", "upraví",
+    "ponúkne", "umožní", "zachová",
     # Present continuous / habitual forms
+    "ponúka", "umožňuje", "zachováva",
     "zadáva", "vytvára", "vyberá", "zobrazuje", "overuje", "odosiela", "prijíma",
     "spracováva", "potvrdzuje", "ruší", "načítava", "ukladá", "odstraňuje",
     "odhlasuje", "vracia", "posiela", "získava", "kontroluje", "generuje",
@@ -35,6 +37,7 @@ SLOVAK_VERBS = {
     "stiahnuť", "nahrať", "vložiť", "vypísať", "registrovať", "aktivovať",
     "deaktivovať", "spustiť", "zastaviť", "otvoriť", "zatvoriť", "odovzdať",
     "schváliť", "zamietnuť", "zmeniť", "upraviť", "pridať", "odobrať",
+    "ponúknuť", "umožniť", "zachovať",
     # English (for mixed projects)
     "enters", "creates", "selects", "displays", "verifies", "sends", "receives",
     "processes", "confirms", "cancels", "loads", "saves", "removes", "updates",

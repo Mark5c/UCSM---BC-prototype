@@ -78,7 +78,7 @@ The `host: true` option is already set in `frontend/vite.config.ts`. Other devic
 ### Use Case Board
 - Kanban-style board with customisable column groups
 - Drag-and-drop reordering of use cases within and between groups
-- Predefined board templates (e.g. Authentication) that auto-populate columns and use cases
+- Predefined board templates (e.g. Authorisation) that auto-populate groups, use cases, alternative flows, and relationships
 
 ### Use Case Editor
 - Two supported templates: **Cockburn** (structured, with level/scope fields) and **Jacobson** (basic flow + subflows)

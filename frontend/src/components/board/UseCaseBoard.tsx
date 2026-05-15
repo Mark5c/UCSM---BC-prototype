@@ -39,6 +39,7 @@ export function UseCaseBoard() {
       if (selectedTemplate) {
         const ucIds: string[] = []
         for (const ucDef of selectedTemplate.useCases) {
+          const basicFlowId = `bf-${Math.random().toString(36).slice(2)}`
           const uc = await createUseCase(activeProject.id, {
             name: ucDef.name,
             templateType: 'cockburn',
@@ -48,8 +49,14 @@ export function UseCaseBoard() {
             preconditions: ucDef.preconditions,
             postconditions: ucDef.postconditions,
             mainFlow: ucDef.mainFlow,
+            alternativeFlows: ucDef.alternativeFlows,
             templateExtras: {
-              basicFlows: [{ id: `bf-${Math.random().toString(36).slice(2)}`, name: 'Základný tok', steps: ucDef.mainFlow }],
+              basicFlows: [{ id: basicFlowId, name: 'Základný tok', steps: ucDef.mainFlow }],
+              jacobsonAltFlows: ucDef.alternativeFlows.map(af => ({
+                ...af,
+                id: `tpl-jaf-${Math.random().toString(36).slice(2, 7)}`,
+                triggeredByBasicFlowId: basicFlowId,
+              })),
             },
             groupId: group.id,
           })
