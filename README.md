@@ -56,6 +56,18 @@ The database is created automatically on first startup — no migration needed. 
 
 ---
 
+### What is not included
+
+The repository does not contain generated or environment-specific files:
+
+| Path | Reason |
+|---|---|
+| `backend/.venv/` | Python virtual environment — created by `python -m venv .venv` |
+| `frontend/node_modules/` | Node dependencies — installed by `npm install` |
+| `backend/ucms.db` | SQLite database — created automatically on first server start |
+
+---
+
 ### Network access (optional)
 
 To make the app accessible to other devices on the same local network, start the backend with:
